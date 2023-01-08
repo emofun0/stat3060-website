@@ -1,0 +1,18 @@
+<div id="window"></div>
+<script>
+    // 获取窗口的 DOM 元素
+    var windowElement = document.getElementById('window');
+    // 创建一个 iframe
+    var iframe = document.createElement('iframe');
+    // 设置 iframe 的宽度和高度
+    iframe.width = 500;
+    iframe.height = 500;
+    // 将 iframe 添加到 DOM 元素中
+    windowElement.appendChild(iframe);
+    // 获取 iframe 的文档对象
+    var doc = iframe.contentWindow.document;
+    // 将 Tkinter 窗口的 HTML 代码写入 iframe
+    doc.open();
+    doc.write(''' + tk.Frame(window).pack() + ''');
+    doc.close();
+</script>
